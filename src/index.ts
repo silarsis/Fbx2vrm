@@ -4,3 +4,5 @@ export type ConversionResult = {
 };
 
 export const placeholder = () => "fbx2vrm";
+
+export * from "./loaders/fbxLoader.js";
