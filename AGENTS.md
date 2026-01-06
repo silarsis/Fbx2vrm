@@ -6,3 +6,4 @@
 - 2026-01-06: Added CI workflow for lint/test on PRs and pushes.
 - 2026-01-06: Updated dependencies to satisfy peer requirements and completed npm install.
 - 2026-01-06: Added .gitignore and refreshed lockfile after dependency update.
+- 2026-01-07: Added CLI entry point scaffold, updated dependencies to latest versions, and expanded CLI test coverage.
