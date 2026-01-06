@@ -1,7 +1,7 @@
 # Implementation Plan: FBX → VRM 1.0 Conversion Library
 
 ## Status
-- Step 1 (Project setup + tooling) completed with initial scaffolding, TypeScript config, testing, and linting.
+- Step 1 (Project setup + tooling) completed with initial scaffolding, TypeScript config, testing, linting, and CLI entry point scaffold.
 
 ## Step 1: Project Setup
 - Initialize Node.js project structure.
