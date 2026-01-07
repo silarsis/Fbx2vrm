@@ -10,3 +10,4 @@
 - 2026-01-08: Implemented FBX loader extraction and stubbed tests; updated plan status.
 - 2026-01-09: Added bone mapping heuristics with confidence scoring and tests; updated plan status.
 - 2026-01-10: Added GitHub release workflow for npm publishing and updated publish configuration.
+- 2026-01-10: Added LLM resolver interface with OpenAI connector, response validation, and tests; updated plan status.
