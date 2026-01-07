@@ -10,19 +10,21 @@ import type { LlmResolver } from "../src/mapping/llmResolver.js";
 const createSceneAndSkeleton = (options?: {
   leftHandName?: string;
   leftHandParentName?: string;
+  leftUpperArmName?: string;
+  leftUpperArmParentName?: string;
 }): { scene: Group; skeleton: FbxSkeletonInfo } => {
   const definitions = [
     { name: "Hips", parent: null, position: { x: 0, y: 0, z: 0 } },
     { name: "Spine", parent: "Hips", position: { x: 0, y: 0.5, z: 0 } },
     { name: "Head", parent: "Spine", position: { x: 0, y: 1.5, z: 0 } },
     {
-      name: "LeftUpperArm",
-      parent: "Spine",
+      name: options?.leftUpperArmName ?? "LeftUpperArm",
+      parent: options?.leftUpperArmParentName ?? "Spine",
       position: { x: -0.3, y: 1.2, z: 0 },
     },
     {
       name: "LeftLowerArm",
-      parent: "LeftUpperArm",
+      parent: options?.leftUpperArmName ?? "LeftUpperArm",
       position: { x: -0.6, y: 1.1, z: 0 },
     },
     {
@@ -104,6 +106,8 @@ const createSceneAndSkeleton = (options?: {
       parentName:
         def.name === (options?.leftHandName ?? "LeftHand")
           ? options?.leftHandParentName ?? def.parent
+          : def.name === (options?.leftUpperArmName ?? "LeftUpperArm")
+            ? options?.leftUpperArmParentName ?? def.parent
           : def.parent,
       position: def.position,
     })),
@@ -179,5 +183,24 @@ describe("convertFbxToVrm", () => {
 
     expect(result.llmResult).toBeDefined();
     expect(result.boneMapping.mappings.leftHand?.source.name).toBe("LeftPalm");
+  });
+
+  it("passes minimum confidence to bone mapping", async () => {
+    const { scene, skeleton } = createSceneAndSkeleton({
+      leftUpperArmName: "LeftArm",
+    });
+    const loadResult = createLoadResult(skeleton, scene);
+
+    const outputDir = await fs.mkdtemp(path.join(os.tmpdir(), "fbx2vrm-"));
+    const outputPath = path.join(outputDir, "model.vrm");
+
+    await expect(
+      convertFbxToVrm({
+        inputPath: "dummy.fbx",
+        outputPath,
+        minimumConfidence: 0.8,
+        loadFbx: async () => loadResult,
+      }),
+    ).rejects.toThrow("Missing required humanoid bones");
   });
 });

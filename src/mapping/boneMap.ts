@@ -44,6 +44,10 @@ export type BoneMappingResult = {
   unmapped: FbxBoneInfo[];
 };
 
+export type BoneMappingOptions = {
+  minimumConfidence?: number;
+};
+
 const prefixPatterns = [/^mixamorig[:_]/i, /^armature[:_]/i, /^bip\d*[:_]/i];
 
 export const normalizeBoneName = (value: string): string => {
@@ -253,8 +257,11 @@ const scoreSideHint = (bone: FbxBoneInfo, target: VrmHumanoidBoneName): number =
   return detectedSide === expectedSide ? 1 : 0;
 };
 
-export const mapHumanoidBones = (skeleton: FbxSkeletonInfo): BoneMappingResult => {
-  const minimumConfidence = 0.5;
+export const mapHumanoidBones = (
+  skeleton: FbxSkeletonInfo,
+  options: BoneMappingOptions = {},
+): BoneMappingResult => {
+  const minimumConfidence = options.minimumConfidence ?? 0.5;
   const bounds = skeleton.bones.reduce(
     (acc, bone) => {
       acc.minY = Math.min(acc.minY, bone.position.y);

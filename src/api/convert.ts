@@ -18,6 +18,7 @@ export type ConversionOptions = {
   outputPath: string;
   meta?: Partial<VRM1Meta>;
   autoUpdateHumanBones?: boolean;
+  minimumConfidence?: number;
   llmResolver?: LlmResolver;
   llmContext?: string;
   loadFbx?: (path: string) => Promise<FbxLoadResult>;
@@ -125,7 +126,9 @@ export const convertFbxToVrm = async (
   const loadResult = await loader(options.inputPath);
   const skeleton = selectSkeletonFromLoad(loadResult);
 
-  let mapping = mapHumanoidBones(skeleton);
+  let mapping = mapHumanoidBones(skeleton, {
+    minimumConfidence: options.minimumConfidence,
+  });
   const warnings: string[] = [];
   let llmResult: LlmResolverResult | undefined;
 
