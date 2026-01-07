@@ -14,3 +14,4 @@
 - 2026-01-11: Implemented VRM builder with GLB export helper and unit tests; updated plan status.
 - 2026-01-07: Implemented conversion pipeline orchestration with LLM merge support and tests; updated plan status.
 - 2026-01-12: Implemented CLI convert command with LLM/confidence options, debug output, and tests; updated plan status.
+- 2026-01-13: Expanded README usage documentation and updated plan status.
