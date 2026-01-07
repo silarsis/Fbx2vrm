@@ -94,6 +94,12 @@ describe("mapHumanoidBones", () => {
     expect(rightFoot?.source.name).toBe("RightFoot");
     expect(rightFoot?.confidence).toBeGreaterThanOrEqual(0.7);
   });
+
+  it("respects the minimum confidence threshold", () => {
+    const result = mapHumanoidBones(createSkeleton(), { minimumConfidence: 0.8 });
+
+    expect(result.mappings.leftUpperArm).toBeNull();
+  });
 });
 
 describe("computeConfidence", () => {
