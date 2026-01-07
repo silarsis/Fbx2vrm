@@ -1,10 +1,4 @@
-export type ConversionResult = {
-  vrmFilePath: string;
-  warnings: string[];
-};
-
-export const placeholder = () => "fbx2vrm";
-
+export * from "./api/convert.js";
 export * from "./loaders/fbxLoader.js";
 export * from "./mapping/boneMap.js";
 export * from "./mapping/confidence.js";
