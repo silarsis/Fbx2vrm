@@ -3,6 +3,7 @@
 ## Status
 - Step 1 (Project setup + tooling) completed with initial scaffolding, TypeScript config, testing, linting, and CLI entry point scaffold.
 - Step 2 (FBX loader) completed with loader extraction logic and stubbed tests.
+- Step 3 (Bone mapping heuristics) completed with mapping heuristics, confidence scoring, and unit tests.
 
 ## Step 1: Project Setup
 - Initialize Node.js project structure.

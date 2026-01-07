@@ -8,3 +8,4 @@
 - 2026-01-06: Added .gitignore and refreshed lockfile after dependency update.
 - 2026-01-07: Added CLI entry point scaffold, updated dependencies to latest versions, and expanded CLI test coverage.
 - 2026-01-08: Implemented FBX loader extraction and stubbed tests; updated plan status.
+- 2026-01-09: Added bone mapping heuristics with confidence scoring and tests; updated plan status.
