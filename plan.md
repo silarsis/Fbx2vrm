@@ -6,6 +6,7 @@
 - Step 3 (Bone mapping heuristics) completed with mapping heuristics, confidence scoring, and unit tests.
 - Step 10 (Release automation) completed with GitHub release publishing workflow.
 - Step 4 (Optional LLM resolver) completed with pluggable resolver interface, OpenAI connector, response validation, and tests.
+- Step 5 (VRM builder) completed with VRM assembly, GLB export helper, and unit tests.
 
 ## Step 1: Project Setup
 - Initialize Node.js project structure.
