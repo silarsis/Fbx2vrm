@@ -6,3 +6,5 @@ export type ConversionResult = {
 export const placeholder = () => "fbx2vrm";
 
 export * from "./loaders/fbxLoader.js";
+export * from "./mapping/boneMap.js";
+export * from "./mapping/confidence.js";
