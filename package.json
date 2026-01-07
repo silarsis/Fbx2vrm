@@ -1,7 +1,9 @@
 {
   "name": "fbx2vrm",
   "version": "0.1.0",
-  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "bin": {
     "fbx2vrm": "dist/cli/index.js"

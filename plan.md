@@ -4,6 +4,7 @@
 - Step 1 (Project setup + tooling) completed with initial scaffolding, TypeScript config, testing, linting, and CLI entry point scaffold.
 - Step 2 (FBX loader) completed with loader extraction logic and stubbed tests.
 - Step 3 (Bone mapping heuristics) completed with mapping heuristics, confidence scoring, and unit tests.
+- Step 10 (Release automation) completed with GitHub release publishing workflow.
 - Step 4 (Optional LLM resolver) completed with pluggable resolver interface, OpenAI connector, response validation, and tests.
 
 ## Step 1: Project Setup
@@ -54,3 +55,7 @@
 ## Step 9: Test Assets Integration
 - Add provided FBX test fixtures.
 - Add integration tests using real assets.
+
+## Step 10: Release Automation
+- Add GitHub Actions workflow to publish the package on GitHub releases.
+- Ensure publish configuration is set for the npm registry.
