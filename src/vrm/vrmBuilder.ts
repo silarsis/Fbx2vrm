@@ -144,12 +144,12 @@ const exportSceneToGlb = async (scene: Group): Promise<ArrayBuffer> =>
         if (result instanceof ArrayBuffer) {
           resolve(result);
         } else if (result instanceof Uint8Array) {
-          resolve(result.buffer);
+          resolve(result.buffer.slice(0) as ArrayBuffer);
         } else {
           reject(new Error("GLTFExporter did not return a binary buffer."));
         }
       },
-      (error) => {
+      (error: Error) => {
         reject(error ?? new Error("Failed to export GLB."));
       },
       { binary: true },

@@ -90,8 +90,14 @@ export const extractFbxData = (scene: Group): FbxLoadResult => {
   };
 };
 
-const bufferToArrayBuffer = (buffer: Buffer): ArrayBuffer =>
-  buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength);
+const bufferToArrayBuffer = (buffer: Buffer): ArrayBuffer => {
+  const arrayBuffer = new ArrayBuffer(buffer.byteLength);
+  const view = new Uint8Array(arrayBuffer);
+  for (let i = 0; i < buffer.byteLength; i++) {
+    view[i] = buffer[i];
+  }
+  return arrayBuffer;
+};
 
 export const loadFbxFromBuffer = (buffer: ArrayBuffer): FbxLoadResult => {
   const loader = new FBXLoader();
