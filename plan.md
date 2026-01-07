@@ -7,6 +7,7 @@
 - Step 10 (Release automation) completed with GitHub release publishing workflow.
 - Step 4 (Optional LLM resolver) completed with pluggable resolver interface, OpenAI connector, response validation, and tests.
 - Step 5 (VRM builder) completed with VRM assembly, GLB export helper, and unit tests.
+- Step 6 (Conversion pipeline) completed with orchestration logic, warnings, and tests.
 
 ## Step 1: Project Setup
 - Initialize Node.js project structure.
